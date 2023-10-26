@@ -16,8 +16,20 @@ def herons_formula(side_a: float, side_b: float, side_c: float):
     return area
 
 
-def quadratic_equation():
-    return
+def quadratic_equation(a: float, b: float, c: float):
+    if a == 0:
+        return -1
+    delta = b ** 2 - 4 * a * c
+
+    if delta < 0:
+        return -1
+    if delta == 0:
+        x = -1 * (b / 2 * a)
+        return x
+    if delta > 0: # else też by było gitówa
+        x1 = (-b - math.sqrt(delta)) / 2 * a
+        x2 = (-b + math.sqrt(delta)) / 2 * a
+        return x1, x2
 
 
 herons_formula(a, b, c)

@@ -1,7 +1,7 @@
 
 # Task 4.
 products: str = input("Wpisz produkty oddzielone przecinkiem (jabłko,banan,ryż,jajka): ")
-products_list: list = products.split(',')
+products_list: set = set(products.split(','))
 products_dict: dict = {}
 
 for product in products_list:
