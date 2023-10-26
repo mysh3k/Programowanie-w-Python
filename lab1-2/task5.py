@@ -1,8 +1,8 @@
 import math
 
-a = 3
-b = 4
-c = 5
+a = 17
+b = -25
+c = 25
 
 # Task 5.
 def herons_formula(side_a: float, side_b: float, side_c: float):
@@ -24,12 +24,15 @@ def quadratic_equation(a: float, b: float, c: float):
     if delta < 0:
         return -1
     if delta == 0:
-        x = -1 * (b / 2 * a)
+        x = -b / (2 * a)
         return x
     if delta > 0: # else też by było gitówa
-        x1 = (-b - math.sqrt(delta)) / 2 * a
-        x2 = (-b + math.sqrt(delta)) / 2 * a
+        x1 = (-b - math.sqrt(delta)) / (2 * a)
+        x2 = (-b + math.sqrt(delta)) / (2 * a)
         return x1, x2
 
+# Co jeśli wynik to -1 w przypadku wartości 2, 4, 2 ._.
+print(herons_formula(a, b, c))
+print(quadratic_equation(a, b, c))
 
-herons_formula(a, b, c)
+
