@@ -1,8 +1,8 @@
 import math
 
-a = 17
-b = -25
-c = 25
+a = 4
+b = 5
+c = 7
 
 # Task 5.
 def herons_formula(side_a: float, side_b: float, side_c: float):
