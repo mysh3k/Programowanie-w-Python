@@ -38,6 +38,39 @@ class Monster:
         Damage: {self.damage}"""
 
 
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+
+class Compartment:
+    def __init__(self, name, capacity):
+        self.name = name
+        self.capacity = capacity
+        self.contents = []
+
+
 class Fridge:
-    def __init__(self):
-        self.insides = []
+    def __init__(self, manufacturer, capacity):
+        self.manufacturer = manufacturer
+        self.cooling_compartment = Compartment("Cooling", capacity)
+        self.freezing_compartment = Compartment("Freezing", capacity)
+
+    def add_product_to_cooling(self, name, price):
+        product = Product(name, price)
+        self.cooling_compartment.contents.append(product)
+
+    def add_product_to_freezing(self, name, price):
+        product = Product(name, price)
+        self.freezing_compartment.contents.append(product)
+
+    def show_cooling_compartment_contents(self):
+        print("Cooling Compartment Contents:")
+        for product in self.cooling_compartment.contents:
+            print(f"- {product.name}: ${product.price}")
+
+    def show_freezing_compartment_contents(self):
+        print("Freezing Compartment Contents:")
+        for product in self.freezing_compartment.contents:
+            print(f"- {product.name}: ${product.price}")
