@@ -10,13 +10,19 @@ class Worker:
     def work(self, duration: int):
         self.__worked_hours += duration
         self.salary = self.salary + self.income_per_hour * duration
+        print(f'You have earned {self.income_per_hour * duration}$')
 
-    def introduction(self) -> str:
-        return f'My name is {self.first_name} {self.last_name}. I have worked for {self.__worked_hours} in this company. Since my last salary I earned myself {self.__salary}!'
+    def introduction(self):
+        print(f'My name is {self.first_name} {self.last_name}. I have worked for {self.__worked_hours} in this company. Since my last salary I earned myself {self.salary}!')
 
-    def salary(self):
-        print(f'You got {self.salary}$')
+    def get_salary(self):
+        print(f'You got paid {self.salary}$')
         self.salary = 0
+
+
+worker = Worker('Tom', 'Turner', 25.75)
+worker.work(6)
+worker.introduction()
 
 
 class Monster:
@@ -26,8 +32,8 @@ class Monster:
         self.health: float = max_health
         self.damage: int = damage
 
-    def attack_worker(self, worker):
-        worker.salary -= self.damage
+    def attack_worker(self, target):
+        target.salary -= self.damage
 
     def heal(self, amount: int):
         self.health = min(self.health + amount, self.max_health)
@@ -36,6 +42,12 @@ class Monster:
         return f"""Monster name: {self.name}
         Health: {self.health}/{self.max_health}
         Damage: {self.damage}"""
+
+
+monster = Monster('Bandit', 100, 10)
+monster.attack_worker(worker)
+monster.summary()
+worker.get_salary()
 
 
 class Product:
@@ -74,3 +86,4 @@ class Fridge:
         print("Freezing Compartment Contents:")
         for product in self.freezing_compartment.contents:
             print(f"- {product.name}: ${product.price}")
+
