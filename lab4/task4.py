@@ -26,13 +26,13 @@ class Bird(Animal):
 
 
 eagle = Bird("Eagle", 5, "brown", 200, True)
-canary = Bird("Penguin", 2, "black", 60, False)
+penguin = Bird("Penguin", 2, "black", 60, False)
 
 print(eagle.info())
-print(canary.info())
+print(penguin.info())
 
 print(eagle.fly())
-print(canary.sing())
+print(penguin.sing())
 
 
 class Character:
